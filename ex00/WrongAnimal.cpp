@@ -20,6 +20,24 @@ WrongAnimal::~WrongAnimal(void)
     return ;
 }
 
+WrongAnimal::WrongAnimal(const WrongAnimal &copy)
+{
+    std::cout << "Animal copy constructor called" << std::endl;
+    *this = copy;
+    return ;
+}
+
+WrongAnimal &WrongAnimal::operator = (const WrongAnimal &copy)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    *this = copy;
+    return (*this);
+}
+
+
+
+
+
 WrongCat::WrongCat(std::string type): WrongAnimal(type)
 {
     std::cout << "WrongCat type constructor called" << std::endl;
@@ -38,6 +56,24 @@ WrongCat::~WrongCat(void)
     std::cout << "WrongCat destructor called" << std::endl;
     return ;
 }
+
+WrongCat::WrongCat(const WrongCat &copy)
+{
+    std::cout << "Animal copy constructor called" << std::endl;
+    *this = copy;
+    return ;
+}
+
+WrongCat &WrongCat::operator = (const WrongCat &copy)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    *this = copy;
+    return (*this);
+}
+
+
+
+
 
 
 std::string WrongAnimal::getType() const

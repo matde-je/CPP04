@@ -5,11 +5,11 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp .cpp
+SRCS = main.cpp Animal.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-name = 
+name = brain
 
 # Build name
 $(name): $(OBJS)

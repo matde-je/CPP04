@@ -19,6 +19,25 @@ Animal::~Animal(void)
     return ;
 }
 
+Animal::Animal(const Animal &copy)
+{
+    std::cout << "Animal copy constructor called" << std::endl;
+    this->type = copy.type;
+    return ;
+}
+
+Animal &Animal::operator = (const Animal &copy)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    this->type = copy.type;
+    return (*this);
+}
+
+
+
+
+
+
 Cat::Cat(std::string type): Animal(type)
 {
     std::cout << "Cat type constructor called" << std::endl;
@@ -38,6 +57,25 @@ Cat::~Cat(void)
     return ;
 }
 
+Cat::Cat(const Cat &copy)
+{
+    std::cout << "Animal copy constructor called" << std::endl;
+    *this = copy;
+    return ;
+}
+
+Cat &Cat::operator = (const Cat &copy)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    *this = copy;
+    return (*this);
+}
+
+
+
+
+
+
 Dog::Dog(std::string type): Animal(type)
 {
     std::cout << "Dog type constructor called" << std::endl;
@@ -56,6 +94,23 @@ Dog::~Dog(void)
     std::cout << "Dog destructor called" << std::endl;
     return ;
 }
+
+Dog::Dog(const Dog &copy)
+{
+    std::cout << "Animal copy constructor called" << std::endl;
+    *this = copy;
+    return ;
+}
+
+Dog &Dog::operator = (const Dog &copy)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    *this = copy;
+    return (*this);
+}
+
+
+
 
 std::string Animal::getType() const
 {
