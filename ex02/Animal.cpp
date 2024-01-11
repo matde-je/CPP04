@@ -33,18 +33,27 @@ Animal &Animal::operator = (const Animal &copy)
     return (*this);
 }
 
+void Animal::makeSound() const
+{
+	std::cout << " animal is trying to make sound" << std::endl;
+}
+
+std::string Animal::getType() const
+{
+    return (this->type);
+}
 
 
 
 
 
-Cat::Cat(void): Animal("cat"), brain(new Brain())
+
+Cat::Cat(void): brain(new Brain())
 {
     std::cout << "Cat constructor called" << std::endl;
+    type = "cat";
     for(int i = 0; i < 100 ; i++)
-    {
         this->brain->ideas[i] = "kitty kat kat";
-    }
     return ;
 }
 
@@ -55,7 +64,7 @@ Cat::~Cat(void)
     return ;
 }
 
-Cat::Cat(const Cat &copy): Animal(copy)
+Cat::Cat(const Cat &copy)
 {
     std::cout << "Cat copy constructor called" << std::endl;
     brain = new Brain(*(copy.brain)); //dereferencing
@@ -87,19 +96,23 @@ Brain& Cat::setBrain(std::string idea)
 	return (*this->brain);
 }
 
+void Cat::makeSound() const
+{
+    std::cout << "miauuuu" << std::endl;
+}
 
 
 
 
 
 
-Dog::Dog(void): Animal("dog"), brain(new Brain())
+
+Dog::Dog(void): brain(new Brain("doggy dog"))
 {
     std::cout << "Dog constructor called" << std::endl;
+    type = "dog";
     for(int i = 0; i < 100 ; i++)
-    {
         this->brain->ideas[i] = "doggy dog";
-    }
     return ;
 }
 
@@ -110,7 +123,7 @@ Dog::~Dog(void)
     return ;
 }
 
-Dog::Dog(const Dog &copy): Animal(copy)
+Dog::Dog(const Dog &copy)
 {
     std::cout << "Dog copy constructor called" << std::endl;
     brain = new Brain(*(copy.brain));
@@ -188,4 +201,8 @@ Brain &Brain::operator = (const Brain &copy)
     return (*this);
 }
 
+void Dog::makeSound() const
+{
+    std::cout << "AOAO" << std::endl;
+}
 

@@ -19,16 +19,7 @@ int main()
     delete animals[2];
     delete animals[3];
 
-    std::cout << "\n" << std::endl;
-    Cat originalCat;
-    originalCat.getBrain();
-    Cat copiedCat(originalCat);
-    std::cout << "copied cat:" << std::endl;
-    copiedCat.getBrain();
-    std::cout << "original cat:" << std::endl;
-    originalCat.setBrain("Persia");
-    std::cout << "copied cat:" << std::endl;
-    copiedCat.getBrain();
+    
 
     return 0;
 }

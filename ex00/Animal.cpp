@@ -7,7 +7,7 @@ Animal::Animal(std::string type)
     return ;
 }
 
-Animal::Animal(void)
+Animal::Animal(void): type("animal")
 {
     std::cout << "Animal constructor called" << std::endl;
     return ;

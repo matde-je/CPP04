@@ -11,7 +11,7 @@ class Brain
 	public:
         std::string ideas[100];
 		Brain(void);
-		Brain(std::string name);
+		Brain(std::string idea);
 		Brain(const Brain& origin);
 		~Brain(void);
 		Brain &operator = (const Brain &copy);
@@ -25,10 +25,14 @@ class Animal
 	public:
 		Animal(void);
 		Animal(std::string name);
+		Animal(const Animal& origin);
+
 		virtual ~Animal(void);
 		Animal &operator = (const Animal &copy);
-		Animal(const Animal& origin);
+		virtual void makeSound() const = 0;
+		std::string getType() const;
 };
+
 
 class Cat: public Animal
 {
@@ -42,6 +46,7 @@ class Cat: public Animal
 		Cat &operator = (const Cat &copy);
 		Brain& getBrain(void);
 		Brain& setBrain(std::string idea);
+		virtual void makeSound() const;
 };
 
 class Dog: public Animal
@@ -56,6 +61,7 @@ class Dog: public Animal
 		Dog &operator = (const Dog &copy);
 		Brain& getBrain(void);
 		Brain& setBrain(std::string idea);
+		virtual void makeSound() const;
 };
 
 #endif
