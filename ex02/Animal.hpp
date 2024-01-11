@@ -37,10 +37,11 @@ class Cat: public Animal
 
 	public:
 		Cat(void);
-		Cat(std::string name);
 		Cat(const Cat& origin);
 		virtual ~Cat(void);
 		Cat &operator = (const Cat &copy);
+		Brain& getBrain(void);
+		Brain& setBrain(std::string idea);
 };
 
 class Dog: public Animal
@@ -50,10 +51,11 @@ class Dog: public Animal
 
 	public:
 		Dog(void);
-		Dog(std::string name);
 		Dog(const Dog& origin);
 		virtual ~Dog(void);
 		Dog &operator = (const Dog &copy);
+		Brain& getBrain(void);
+		Brain& setBrain(std::string idea);
 };
 
 #endif

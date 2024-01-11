@@ -18,6 +18,18 @@ int main()
     delete animals[1];
     delete animals[2];
     delete animals[3];
+
+    std::cout << "\n" << std::endl;
+    Cat originalCat;
+    originalCat.getBrain();
+    Cat copiedCat(originalCat);
+    std::cout << "copied cat:" << std::endl;
+    copiedCat.getBrain();
+    std::cout << "original cat:" << std::endl;
+    originalCat.setBrain("Persia");
+    std::cout << "copied cat:" << std::endl;
+    copiedCat.getBrain();
+
     return 0;
 }
 
@@ -55,6 +67,36 @@ int main()
 // Brain destructor called
 // Animal destructor called
 
+// Cat destructor called
+// Brain destructor called
+// Animal destructor called
+
+
+
+//pt2
+
+// Animal type constructor called
+// Brain constructor called
+// Cat constructor called
+
+
+// Cat brain: kitty kat kat
+
+// Animal copy constructor called
+// Cat copy constructor called
+// Brain copy constructor called
+
+// copied cat:
+// Cat brain: kitty kat kat
+// original cat:
+// Cat brain set to: Persia
+// copied cat:
+// Cat brain: kitty kat kat therefore didnt change, solid copy
+
+
+// Cat destructor called
+// Brain destructor called
+// Animal destructor called
 // Cat destructor called
 // Brain destructor called
 // Animal destructor called
