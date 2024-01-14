@@ -30,7 +30,7 @@ class Animal
 		virtual ~Animal(void);
 		Animal &operator = (const Animal &copy);
 		virtual void makeSound() const = 0;
-		std::string getType() const;
+		const std::string getType() const;
 };
 
 

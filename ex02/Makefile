@@ -9,7 +9,7 @@ SRCS = main.cpp Animal.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-name = brain
+name = abstract
 
 # Build name
 $(name): $(OBJS)

@@ -26,7 +26,7 @@ Animal::Animal(const Animal &copy)
     return ;
 }
 
-Animal &Animal::operator = (const Animal &copy)
+Animal &Animal::operator=(const Animal &copy)
 {
     std::cout << " Animal copy operator called" << std::endl;
     this->type = copy.type;
@@ -38,7 +38,7 @@ void Animal::makeSound() const
 	std::cout << " animal is trying to make sound" << std::endl;
 }
 
-std::string Animal::getType() const
+const std::string Animal::getType() const
 {
     return (this->type);
 }
@@ -48,7 +48,7 @@ std::string Animal::getType() const
 
 
 
-Cat::Cat(void): brain(new Brain())
+Cat::Cat(void): Animal(), brain(new Brain())
 {
     std::cout << "Cat constructor called" << std::endl;
     type = "cat";
@@ -64,14 +64,14 @@ Cat::~Cat(void)
     return ;
 }
 
-Cat::Cat(const Cat &copy)
+Cat::Cat(const Cat &copy): Animal()
 {
     std::cout << "Cat copy constructor called" << std::endl;
     brain = new Brain(*(copy.brain)); //dereferencing
     return ;
 }
 
-Cat &Cat::operator = (const Cat &copy)
+Cat &Cat::operator=(const Cat &copy)
 {
     if (this != &copy)
     {
@@ -107,7 +107,7 @@ void Cat::makeSound() const
 
 
 
-Dog::Dog(void): brain(new Brain("doggy dog"))
+Dog::Dog(void): Animal(), brain(new Brain())
 {
     std::cout << "Dog constructor called" << std::endl;
     type = "dog";
@@ -123,7 +123,7 @@ Dog::~Dog(void)
     return ;
 }
 
-Dog::Dog(const Dog &copy)
+Dog::Dog(const Dog &copy): Animal()
 {
     std::cout << "Dog copy constructor called" << std::endl;
     brain = new Brain(*(copy.brain));
@@ -155,6 +155,10 @@ Brain& Dog::setBrain(std::string idea)
 	return (*this->brain);
 }
 
+void Dog::makeSound() const
+{
+    std::cout << "AOAO" << std::endl;
+}
 
 
 
@@ -188,7 +192,7 @@ Brain::Brain(const Brain &copy)
     return ;
 }
 
-Brain &Brain::operator = (const Brain &copy)
+Brain &Brain::operator=(const Brain &copy)
 {
     if (this != &copy)
     {
@@ -201,8 +205,4 @@ Brain &Brain::operator = (const Brain &copy)
     return (*this);
 }
 
-void Dog::makeSound() const
-{
-    std::cout << "AOAO" << std::endl;
-}
 
