@@ -19,10 +19,12 @@ class WrongAnimal
 	public:
 		WrongAnimal(void);
 		WrongAnimal(std::string name);
+		WrongAnimal(const WrongAnimal &copy);
 		virtual ~WrongAnimal(void);
 
+		WrongAnimal &operator=(const WrongAnimal &copy);
 		std::string getType() const;
-		virtual void makeSound() const;
+		void makeSound() const;
        
 };
 
@@ -31,8 +33,9 @@ class WrongCat: public WrongAnimal
 	public:
 		WrongCat(void);
 		WrongCat(std::string name);
+		WrongCat(const WrongCat &copy);
 		virtual ~WrongCat(void);
-		
+		WrongCat &operator=(const WrongCat &copy);
 		void makeSound() const;
 };
 

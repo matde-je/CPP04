@@ -4,188 +4,111 @@ Animal::Animal(std::string type)
 {
     std::cout << "Animal type constructor called" << std::endl;
     this->type = type;
-    return ;
 }
 
 Animal::Animal(void)
 {
     std::cout << "Animal constructor called" << std::endl;
-    return ;
 }
 
 Animal::~Animal(void)
 {
     std::cout << "Animal destructor called" << std::endl;
-    return ;
 }
 
 Animal::Animal(const Animal &copy)
 {
     std::cout << "Animal copy constructor called" << std::endl;
-    this->type = copy.type;
-    return ;
+    *this = copy;
 }
 
-Animal &Animal::operator = (const Animal &copy)
+Animal &Animal::operator=(const Animal &copy)
 {
-    std::cout << " Animal copy operator called" << std::endl;
+    std::cout << "Animal copy operator called" << std::endl;
     this->type = copy.type;
     return (*this);
 }
 
-
-
-
-
-
-Cat::Cat(void): Animal("cat"), brain(new Brain())
+Cat::Cat(void): Animal("Cat"), brain(new Brain())
 {
     std::cout << "Cat constructor called" << std::endl;
     for(int i = 0; i < 100 ; i++)
-    {
-        this->brain->ideas[i] = "kitty kat kat";
-    }
-    return ;
+        this->brain->ideas[i] = "Cat ideas";
 }
 
 Cat::~Cat(void)
 {
     std::cout << "Cat destructor called" << std::endl;
     delete this->brain; //calls brain destructor
-    return ;
 }
 
 Cat::Cat(const Cat &copy): Animal(copy)
 {
     std::cout << "Cat copy constructor called" << std::endl;
     brain = new Brain(*(copy.brain)); //dereferencing
-    return ;
 }
 
-Cat &Cat::operator = (const Cat &copy)
+Cat &Cat::operator=(const Cat &copy)
 {
-    if (this != &copy)
-    {
-        std::cout << "Cat copy operator called" << std::endl;  
-        delete brain;
-        brain = new Brain(*(copy.brain));
-        Animal::operator=(copy);
-    }
+    std::cout << "Cat copy operator called" << std::endl;  
+    *this->brain = *copy.brain;
+	this->type = copy.type;
     return *this;
 }
 
-Brain& Cat::getBrain(void)
-{
-    std::cout << "Cat brain: " << this->brain->ideas[0] << std::endl;
-	return (*this->brain);
-}
-
-Brain& Cat::setBrain(std::string idea)
-{
-    std::cout << "Cat brain set to: " << idea << std::endl;
-    this->brain->ideas[0] = idea;
-	return (*this->brain);
-}
-
-
-
-
-
-
-
-Dog::Dog(void): Animal("dog"), brain(new Brain())
+Dog::Dog(void): Animal("Dog"), brain(new Brain())
 {
     std::cout << "Dog constructor called" << std::endl;
     for(int i = 0; i < 100 ; i++)
-    {
-        this->brain->ideas[i] = "doggy dog";
-    }
-    return ;
+        this->brain->ideas[i] = "Dog ideas";
 }
 
 Dog::~Dog(void)
 {
     std::cout << "Dog destructor called" << std::endl;
     delete this->brain;
-    return ;
 }
 
 Dog::Dog(const Dog &copy): Animal(copy)
 {
     std::cout << "Dog copy constructor called" << std::endl;
     brain = new Brain(*(copy.brain));
-    return ;
 }
 
 Dog &Dog::operator=(const Dog &copy)
 {
-    if (this != &copy)
-    {
-        std::cout << "Dog copy operator called" << std::endl;
-        delete brain;
-        brain = new Brain(*(copy.brain));
-        Animal::operator=(copy);
-    }
+    std::cout << "Dog copy operator called" << std::endl;
+    *this->brain = *copy.brain;
+	this->type = copy.type;
     return *this;
 }
-
-Brain& Dog::getBrain(void)
-{
-    std::cout << "Dog brain: " << this->brain->ideas[0] << std::endl;
-	return (*this->brain);
-}
-
-Brain& Dog::setBrain(std::string idea)
-{
-    this->brain->ideas[0] = idea;
-    std::cout << "Dog brain set to: " << this->brain->ideas[0] << std::endl;
-	return (*this->brain);
-}
-
-
-
-
 
 Brain::Brain(std::string idea)
 {
     std::cout << "Brain type constructor called" << std::endl;
     *this = idea;
-    return ;
 }
 
 Brain::Brain(void)
 {
     std::cout << "Brain constructor called" << std::endl;
-    return ;
 }
 
 Brain::~Brain(void)
 {
     std::cout << "Brain destructor called" << std::endl;
-    return ;
 }
 
 Brain::Brain(const Brain &copy)
 {
     std::cout << "Brain copy constructor called" << std::endl;
-    for (int i = 0; i < 100; ++i)
-    {
-        this->ideas[i] = copy.ideas[i];
-    }
-    return ;
+    *this = copy;
 }
 
-Brain &Brain::operator = (const Brain &copy)
+Brain &Brain::operator=(const Brain &copy)
 {
-    if (this != &copy)
-    {
-        std::cout << "Copy assignment operator called" << std::endl;
-        for (int i = 0; i < 100; ++i)
-        {
-            this->ideas[i] = copy.ideas[i];
-        }
-    }
+    std::cout << "Brain copy assignment operator called" << std::endl;
+    for (int i = 0; i < 100; ++i)
+        this->ideas[i] = copy.ideas[i];
     return (*this);
 }
-
-

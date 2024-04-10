@@ -7,29 +7,27 @@ int main()
     const Animal* j = new Dog();
     const Animal* i = new Cat();
 
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
+    std::cout << j->getType() << std::endl;
+    std::cout << i->getType() << std::endl;
 
-    i->makeSound(); //will output the cat sound!
+    i->makeSound();
     j->makeSound();
     meta->makeSound();
 
-    delete meta;
-    delete j;
     delete i;
+    delete j;
+    delete meta;
 
     const WrongAnimal* meta1 = new WrongAnimal();
     const WrongAnimal* i1 = new WrongCat();
 
-    std::cout << i1->getType() << " " << std::endl;
+    std::cout << i1->getType() << std::endl;
 
-    i1->makeSound(); //will output the cat sound!
+    i1->makeSound();
     meta1->makeSound();
 
     delete i1;
     delete meta1;
-
-    return 0;
 }
 
 //in virtual destructors the derived class will destruct first and then the other
